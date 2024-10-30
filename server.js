@@ -2,13 +2,15 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Utility function to check if a string is a palindrome
+// function to check if a string is a palindrome
+
 function isPalindrome(str) {
   const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
   return cleanedStr === cleanedStr.split('').reverse().join('');
 }
 
 // Create the server
+
 const server = http.createServer((req, res) => {
   if (req.method === 'GET') {
     // Serve the HTML page for the root route
@@ -23,7 +25,8 @@ const server = http.createServer((req, res) => {
         }
       });
     } else if (req.url.endsWith('.css') || req.url.endsWith('.js')) {
-      // Serve static CSS and JavaScript files
+    
+
       const ext = path.extname(req.url);
       const contentType = ext === '.css' ? 'text/css' : 'application/javascript';
       fs.readFile(`.${req.url}`, (err, data) => {
@@ -53,7 +56,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-// Start the server
+
 const PORT = 7000;
 server.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

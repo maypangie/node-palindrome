@@ -28,7 +28,7 @@ document.getElementById('palindrome-form').addEventListener('submit', async (eve
     // Display the result on the page and log the final displayed message
     const message = result.isPalindrome
       ? `"${text}" spelled backwards is the same thing!`
-      : `"${text}" is not a palindrome.`;
+      : `"${text}" is not a palindrome..but you know what is? "Yo, Banana Boy!" `;
     document.getElementById('result').textContent = message;
   
     console.log("Displayed result:", message);
